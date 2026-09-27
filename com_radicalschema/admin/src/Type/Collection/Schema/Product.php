@@ -168,14 +168,32 @@ class Product implements MicrodataType, FormFieldsAwareType
     {
         $item = (object) array_merge($this->getConfig(), (array) $item);
 
+        $description = !empty($item->description) && \is_scalar($item->description) ? trim((string) $item->description) : '';
+
+        if ($description === '')
+        {
+            try
+            {
+                $description = trim((string) Factory::getApplication()->getDocument()->getDescription());
+            }
+            catch (\Throwable $e)
+            {
+                $description = '';
+            }
+        }
+
         $data = [
-            'uid'         => $this->uid,
-            'priority'    => $priority,
-            '@context'    => 'https://schema.org',
-            '@type'       => 'Product',
-            'name'        => $item->title ? ValueHelper::prepareText($item->title, 110) : '',
-            'description' => $item->description ? ValueHelper::prepareText($item->description, 5000) : '',
+            'uid'      => $this->uid,
+            'priority' => $priority,
+            '@context' => 'https://schema.org',
+            '@type'    => 'Product',
+            'name'     => $item->title ? ValueHelper::prepareText($item->title, 110) : '',
         ];
+
+        if ($description !== '')
+        {
+            $data['description'] = ValueHelper::prepareText($description, 5000);
+        }
 
         // Sku
         if (!empty($item->sku))
