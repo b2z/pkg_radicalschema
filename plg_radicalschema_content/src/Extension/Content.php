@@ -122,7 +122,7 @@ class Content extends Adapter implements SubscriberInterface
             }
 
             // Check and set schema fields
-            if (RadicalSchemaHelper::checkEnable($this->_name, 'meta'))
+            if (RadicalSchemaHelper::checkEnable($this->_name, 'schema'))
             {
                 $form->loadFile('com_content.article');
 
@@ -162,7 +162,7 @@ class Content extends Adapter implements SubscriberInterface
         $fields            = [];
         $fields['core']    = $this->getItemFromDatabase();
         $fields['images']  = FormHelper::getFieldsForm('com_content', 'article', 'images');
-        $fields['attribs'] = FormHelper::getFieldsForm('com_content', 'article', 'attribs');
+        // Article parameters (layout, show title...) are not useful for markup - not listed
 
         // Add text
         $fields['core']['text'] = '';
@@ -180,7 +180,12 @@ class Content extends Adapter implements SubscriberInterface
             'number',
             'checkbox',
             'checkboxes',
-            'tel'
+            'tel',
+            'radio',
+            'range',
+            'url',
+            'calendar',
+            'sql'
         ];
 
         $contentFields = FieldsHelper::getFields('com_content.article');
