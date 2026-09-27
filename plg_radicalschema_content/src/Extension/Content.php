@@ -106,7 +106,7 @@ class Content extends Adapter implements SubscriberInterface
             $this->setFormMetaFields($form, $this->_name . '_meta', 'radicalschema_mapping', ['showon' => 'content_meta_enable!:0']);
 
             // Set schema fields
-            $this->setFormSchemaFields($form, '', $this->_name . '_schema', 'radicalschema_mapping', ['showon' => 'content_schema_enable!:0']);
+            $this->setFormSchemaTypesFields($form, $this->_name . '_schema', 'radicalschema_mapping', ['showon' => 'content_schema_enable!:0']);
         }
 
         // Article
