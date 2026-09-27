@@ -16,13 +16,13 @@ namespace Joomla\Component\RadicalSchema\Administrator\Type\Collection\Schema;
 use Joomla\Component\RadicalSchema\Administrator\Type\AbstractArticle;
 
 /**
- * Schema.org Article type.
+ * Schema.org BlogPosting type for blog posts.
  *
  * @source https://developers.google.com/search/docs/appearance/structured-data/article
  *
  * @since  __DEPLOY_VERSION__
  */
-class Article extends AbstractArticle
+class BlogPosting extends AbstractArticle
 {
     /**
      * Schema.org type of the article.
@@ -30,5 +30,5 @@ class Article extends AbstractArticle
      * @var    string
      * @since  __DEPLOY_VERSION__
      */
-    protected const ARTICLE_TYPE = 'Article';
+    protected const ARTICLE_TYPE = 'BlogPosting';
 }

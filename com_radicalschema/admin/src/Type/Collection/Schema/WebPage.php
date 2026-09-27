@@ -13,22 +13,22 @@ namespace Joomla\Component\RadicalSchema\Administrator\Type\Collection\Schema;
 
 \defined('_JEXEC') or die;
 
-use Joomla\Component\RadicalSchema\Administrator\Type\AbstractArticle;
+use Joomla\Component\RadicalSchema\Administrator\Type\AbstractWebPage;
 
 /**
- * Schema.org Article type.
+ * Schema.org WebPage type for regular pages.
  *
- * @source https://developers.google.com/search/docs/appearance/structured-data/article
+ * @source https://schema.org/WebPage
  *
  * @since  __DEPLOY_VERSION__
  */
-class Article extends AbstractArticle
+class WebPage extends AbstractWebPage
 {
     /**
-     * Schema.org type of the article.
+     * Schema.org type of the page.
      *
      * @var    string
      * @since  __DEPLOY_VERSION__
      */
-    protected const ARTICLE_TYPE = 'Article';
+    protected const PAGE_TYPE = 'WebPage';
 }
