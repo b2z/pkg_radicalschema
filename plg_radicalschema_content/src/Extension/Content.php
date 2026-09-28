@@ -162,7 +162,7 @@ class Content extends Adapter implements SubscriberInterface
         $fields            = [];
         $fields['core']    = $this->getItemFromDatabase();
         $fields['images']  = FormHelper::getFieldsForm('com_content', 'article', 'images');
-        // Article parameters (layout, show title...) are not useful for markup - not listed
+        $fields['attribs'] = FormHelper::getFieldsForm('com_content', 'article', 'attribs');
 
         // Add text
         $fields['core']['text'] = '';
